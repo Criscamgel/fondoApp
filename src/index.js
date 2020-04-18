@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Firebase, { FirebaseContext } from './server';
+
+/* const FirebaseContext = React.createContext(); */
+
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* Etiqueta Context uqe provee globalmete los atributos de firebase */}
+    <FirebaseContext.Provider value={new Firebase()}>
     <App />
+    </FirebaseContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
